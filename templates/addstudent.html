@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="POST">
+        {{form.hidden_tag()}}
+
+        {{ form.firstname(placeholder = "ID first") }}
+        {% if form.firstname.errors %}
+        {% for error in form.firstname.errors %}
+        {{ error }}
+        {% endfor %}
+        {% endif %}<br>
+
+        {{ form.middlename(placeholder = "ID middle") }} {% if form.middlename.errors %}
+        {% for error in form.middlename.errors %} {{ error }} {% endfor %} {% endif %}<br>
+
+        {{ form.lastname(placeholder = "ID lastname") }} {% if form.lastname.errors %}
+        {% for error in form.lastname.errors %} {{ error }} {% endfor %} {% endif %}<br>
+
+        {{ form.gender }}
+        <br>
+        {{ form.course }}
+
+        <br>
+        {{form.submit}}
+    </form>
+
+</body>
+</html>
