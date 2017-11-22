@@ -1,34 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
 
+{% block body %}
+
+<div class="form_container" style="">
     <form method="POST">
         {{form.hidden_tag()}}
-
-        {{ form.firstname(placeholder = "ID first") }}
-        {% if form.firstname.errors %}
-        {% for error in form.firstname.errors %}
-        {{ error }}
-        {% endfor %}
-        {% endif %}<br>
-
-        {{ form.middlename(placeholder = "ID middle") }} {% if form.middlename.errors %}
-        {% for error in form.middlename.errors %} {{ error }} {% endfor %} {% endif %}<br>
-
-        {{ form.lastname(placeholder = "ID lastname") }} {% if form.lastname.errors %}
-        {% for error in form.lastname.errors %} {{ error }} {% endfor %} {% endif %}<br>
-
-        {{ form.gender }}
-        <br>
-        {{ form.course }}
-
-        <br>
-        {{form.submit}}
+        <div class="container" style="font-size:16px;">
+            <div class="row">
+                <div class="col-lg-5" style="font-size:28px;">
+                    Student Form
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label>First Name:
+                    {{ form.firstname(placeholder = "First name") }}{% if form.firstname.errors %}
+                    {% for error in form.firstname.errors %}{{ error }}{% endfor %}{% endif %}<br></label>
+                </div>
+                <div class="col-lg-2">
+                    <label>Middle Name:
+                    {{ form.middlename(placeholder = "Middle name") }} {% if form.middlename.errors %}
+                    {% for error in form.middlename.errors %} {{ error }} {% endfor %} {% endif %}<br></label>
+                </div>
+                <div class="col-lg-2">
+                    <label>Last Name:
+                    {{ form.lastname(placeholder = "Last name") }} {% if form.lastname.errors %}
+                    {% for error in form.lastname.errors %} {{ error }} {% endfor %} {% endif %}<br></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <div style="background-color:white; text-align:left; padding: 2px 1px; border-radius: 5px;">
+                        <label>Gender:
+                            {{ form.gender }}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    {{ form.course }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <br/>
+                    {{form.submit(style="width:100px;") }}
+                </div>
+            </div>
+        </div>
     </form>
 
-</body>
-</html>
+</div>
+
+
+
+{% endblock %}

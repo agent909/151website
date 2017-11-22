@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <script src="/static/js/jquery-3.2.1.min.js"></script>
+
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--var  a = 1;-->
+            <!--$("#btn").click(function(){-->
+                <!--$("#btn").animate({width:'500px:'},1000);-->
+                <!--&lt;!&ndash;if(a==1):&ndash;&gt;-->
+                    <!--&lt;!&ndash;$("#btn").animate({width:'500px:'},1000);&ndash;&gt;-->
+                <!--&lt;!&ndash;else:&ndash;&gt;-->
+                    <!--&lt;!&ndash;$("#btn").animate({width:'100px:'},1000);&ndash;&gt;-->
+            <!--});-->
+        <!--});-->
+
+
+<script>
+$(document).ready(function(){
+    var a = 1;
+    $("#btn").click(function(){
+        if(a==1){
+            $("#btn").animate({width: '250px'});
+            a=0;
+        }
+        else{
+            $("#btn").animate({width: '100px'});
+            a=1;
+        }
+    });
+});
+</script>
+
+
+
+
+</head>
+<body>
+        <button id="btn" type="Button" style="width:100px;">CLICK HERE BRO </button>
+
+</body>
+</html>
