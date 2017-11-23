@@ -9,7 +9,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    form = search(request.form)
     return render_template("index.html")
 
 @app.route('/addstudent', methods=['GET','POST'])
