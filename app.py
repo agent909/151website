@@ -6,11 +6,6 @@ from config import database
 
 app = Flask(__name__)
 
-@app.route('/testing')
-def exp():
-    # form = search(request.form)
-    return render_template("exp.html")
-
 
 @app.route('/')
 def index():
@@ -48,6 +43,14 @@ def update():
 
     return render_template('search.html', form=form)
 
+@app.route('/delete/<string:id>', methods=['GET','POST'])
+def delete(id):
+    cur = database.cursor()
+    cur.execute("DELETE FROM student WHERE student_id="+id+";")
+    database.commit()
+    cur.close()
+    return render_template('delete.html')
+
 
 @app.route('/updatestudent/<string:id>', methods=['GET','POST'])
 def updatestudent(id):
@@ -68,7 +71,7 @@ def updatestudent(id):
 
         #present changes
         # return render_template("successupdate.html")
-        return render_template('student_added.html')
+        return render_template('student_updated.html')
 
     cur = database.cursor()
     cur.execute("SELECT *FROM student WHERE student_id="+id+";")
