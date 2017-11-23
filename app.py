@@ -22,16 +22,36 @@ def student():
     form = addstudent(request.form)
 
     if request.method == 'POST':
-        print("INSIDE SECOND CON")
         idk = models.db(form.firstname.data, form.middlename.data, form.lastname.data, form.gender.data, form.course.data)
         idk.register()
-        return render_template("index.html")
+        return render_template("student_added.html")
     return render_template("addstudent.html", form=form)
 
+
+@app.route('/updatestudent', methods=['GET','POST'])
+def update():
+    form = search(request.form)
+
+    if request.method == 'POST':
+        src = str(form.find.data)
+        cur = database.cursor()
+
+        a = "WHERE (firstname LIKE '"+src+"%' OR middlename LIKE '"+src
+        b = "%' OR lastname LIKE '"+src+"%' OR student_id LIKE '"+src+"%')"+" AND student.course_id=course.course_id"
+        query = "SELECT firstname,middlename,lastname,gender,student_id,course.course FROM student,course "+str(a)+str(b)
+        cur.execute(query)
+
+        result = cur.fetchall()
+        cur.close()
+
+        return render_template('search.html', form=form, students=result)
+
+    return render_template('search.html', form=form)
 
 
 @app.route('/updatestudent/<string:id>', methods=['GET','POST'])
 def updatestudent(id):
+    print(id)
     form = addstudent(request.form)
 
     if request.method == 'POST':
@@ -48,15 +68,10 @@ def updatestudent(id):
 
         #present changes
         # return render_template("successupdate.html")
-        return 'SUCCESS UPDATE'
-
+        return render_template('student_added.html')
 
     cur = database.cursor()
-    cardinality = cur.execute("SELECT * FROM Student WHERE student_id="+id+";")
-    if cardinality == 0:
-        cur.close()
-        return 'STUDENT DOES NOT EXIST'
-
+    cur.execute("SELECT *FROM student WHERE student_id="+id+";")
     student = cur.fetchone()
     cur.close()
 
@@ -65,10 +80,8 @@ def updatestudent(id):
     form.lastname.data = student[2]
     form.gender.data = student[3]
     form.course.data = student[5]
-
-
-
     return render_template("addstudent.html", form=form)
+
 
 
 # @app.route('/search', methods=['GET'])

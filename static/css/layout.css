@@ -11,5 +11,24 @@
 }
 
 #course{
-    width:85%;
+    width:90%;
 }
+
+
+.search_table td{
+    border: 1px solid gray;
+    font-size: 15px;
+    padding: 1% 1%;
+}
+
+.search_table th{
+    background-color:black;
+    padding: 1% 1%;
+    color:white;
+}
+
+
+
+.search_table tr:nth-child(even){background-color: #e4e1e1;}
+
+.search_table tr:hover {background-color: #868585;}

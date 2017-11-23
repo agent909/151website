@@ -3,8 +3,6 @@
 from config import database
 
 
-
-
 class db(object):
     def __init__(self, firstname, middlename, lastname, gender, course):
         self.firstname = firstname
@@ -20,7 +18,6 @@ class db(object):
 
             database.commit()
             cur.close()
-            print("USED REGISTER")
             return
         # except:
         #     print("something went wrong")

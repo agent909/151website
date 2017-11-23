@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/static/css/layout.css"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
 
 
@@ -16,45 +16,40 @@
     <div class="container-fluid" style="z-index:10;">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#" id="paneltoggle" style="padding: 5px 0; color:white;">
-                    <span class="glyphicon glyphicon-list" style="font-size:30px; color:gray;"></span>
-                </a>
+                <a href="/" style="font-size: 25px; color:gray;">Home</a>
             </li>
             <li>
-                <a href="/dashboard" style="font-size: 25px; color:gray;">Home</a>
+                <a href="/addstudent" style="font-size: 25px; color:gray;">Add Student</a>
             </li>
             <li>
-                <a href="/dashboard" style="font-size: 25px; color:gray;">Add Student</a>
-            </li>
-            <li>
-                <a href="/dashboard" style="font-size: 25px; color:gray;">Update/Delete</a>
+                <a href="/updatestudent" style="font-size: 25px; color:gray;">Update/Delete</a>
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <!--<ul class="nav navbar-nav navbar-right">-->
 
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <strong><span class="glyphicon glyphicon-user"></span> CLERK <span class="caret"></span></strong>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">ADMIN</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
+            <!--<li class="dropdown">-->
+                <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+                    <!--<strong><span class="glyphicon glyphicon-user"></span> CLERK <span class="caret"></span></strong>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#">ADMIN</a></li>-->
+                    <!--<li><a href="#">Logout</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
 
 
-        <form class="navbar-form navbar-right">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search"/>
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+        <!--<form class="navbar-form navbar-right">-->
+            <!--<div class="input-group">-->
+                <!--<input type="text" class="form-control" placeholder="Search Student"/>-->
+                <!--<div class="input-group-btn">-->
+                    <!--<button class="btn btn-default" type="submit">-->
+                        <!--<i class="glyphicon glyphicon-search"></i>-->
+                    <!--</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
 
     </div>
 </nav>

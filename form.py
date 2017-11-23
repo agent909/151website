@@ -22,3 +22,4 @@ class addstudent(FlaskForm):
 
 class search(FlaskForm):
     find = StringField('search', [validators.Length(min=1,max=100, message="requires 1 - 100 characters")])
+    submit = SubmitField('Search')

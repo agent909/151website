@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div style="text-align:center;position:absolute;width:100%;top:15%;">
+    <form method="POST">
+        {{form.hidden_tag()}}
+
+        {{ form.find( style="width:28%;font-size:20px; padding: 10px 1px; text-align: center;", placeholder="Search Student" ) }} {% if form.find.errors %}
+        {% for error in form.find.errors %} {{ error }} {% endfor %} {% endif %}
+
+        {{form.submit(style="position:absolute; top:0%; height:52px; width:8%;")}}
+    </form>
+</div>
+
+<div class="search_table" style="position:absolute; width:100%; top:30%;">
+
+    <table style="position:absolute; left:5%; width:90%; text-align:center;">
+        <tbody>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Middle Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Student ID
+                </th>
+                <th>
+                    Course
+                </th>
+            </tr>
+
+            {% for std in students %}
+
+            <tr id="{{std[4]}}">
+                <td>{{ std[0] }}</td>
+                <td>{{ std[1] }}</td>
+                <td>{{ std[2] }}</td>
+                <td>{{ std[3] }}</td>
+                <td>{{ std[4] }}</td>
+                <td>{{ std[5] }}</td>
+                <td style="border:0px;background-color:white; padding:0px;">
+                    <a href="/updatestudent/{{std[4]}}">
+                        <button class="btn btn-primary" style="padding: 2px; float:left;">UPDATE</button>
+                    </a>
+                        <button class="btn btn-danger" style="padding: 2px;float:left;">DELETE</button>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
